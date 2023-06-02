@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Avatar } from "../Avatar";
-import { CardComponent } from ".";
+import { CardComponent } from "..";
+import { Avatar } from "../../Avatar";
 
 // Type
-interface CardUserProperties {
+export interface CardUserProperties {
   name: string;
   description: string;
   imageUrl: string;
@@ -71,21 +71,23 @@ export const CardUser: React.FC<CardUserProperties> = ({
         />
       </AspectAvatarContainer>
 
-      <CardComponent.Wrapper>
+      <CardComponent.Paper>
         <AspectSpacerBottom />
-        {/* TODO: use CardComponent.Cover in course and event card */}
-        {/* <CardComponent.Cover $imageUrl={imageUrl} /> */}
         <CardComponent.Content>
           <CardComponent.Header
             endDecorator={
               <CardComponent.HeaderReview>4,5</CardComponent.HeaderReview>
-            }>
+            }
+          >
             {role ?? ""}
           </CardComponent.Header>
-          <CardComponent.Body title={name}>{description}</CardComponent.Body>
+          <CardComponent.Body
+            title={name}
+            description={description}
+          ></CardComponent.Body>
           <CardComponent.Footer>8 corsi</CardComponent.Footer>
         </CardComponent.Content>
-      </CardComponent.Wrapper>
+      </CardComponent.Paper>
     </Wrapper>
   );
 };

@@ -25,6 +25,8 @@ module.exports = {
     "react-hooks",
   ],
   rules: {
+    "react/react-in-jsx-scope": 0, // In react 17 importing react is not mandatory in jsx files
+    "react/jsx-uses-react": 0, // In react 17 importing react is not mandatory in jsx files
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "@typescript-eslint/no-non-null-assertion": "off",
