@@ -1,14 +1,13 @@
-import React from "react";
+import { Theme, useTheme } from "@material-ui/core";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
-
-// import alternativeImage from "../../assets/images/illustrations/Illustrazione3 -12.svg"; // FIXME: change
 
 // Type
 type Sizes = "sm" | "md" | "lg" | "fullHeight" | "fullWidth";
 type BorderWidth = "none" | "sm" | "md" | "lg";
 type Shadow = "none" | "stroke" | "sm" | "md" | "lg";
 
-interface AvatarProperties {
+export interface AvatarProperties {
   isSquared?: boolean;
   alternativeText: string;
   imageUrl: string;
@@ -31,6 +30,14 @@ interface BorderProperties extends AvatarShapeProperties {
   $borderColor?: string;
   $borderWidth: BorderWidth;
 }
+
+type CommonAvatarStyleProperties = AvatarShapeProperties;
+
+interface StyledAvatarProperties extends CommonAvatarStyleProperties {
+  $isLoaded: boolean;
+}
+
+type DefaultAvatarProperties = CommonAvatarStyleProperties;
 
 // Styled
 const squaredMaskID = "squared-mask";
@@ -117,8 +124,9 @@ const Border = styled.div<BorderProperties>`
     return shadowProperties;
   }}
 `;
-const StyledAvatar = styled.img<AvatarShapeProperties>`
-  background-color: ${({ theme }) => theme.palette.grey[300]};
+
+const commonAvatarStyle = css<CommonAvatarStyleProperties>`
+  background-color: ${({ theme }) => theme.palette.background.default};
   clip-path: url(#${({ $isSquared }) =>
     $isSquared ? squaredMaskID : circleMaskID});
   height: 100%;
@@ -126,7 +134,20 @@ const StyledAvatar = styled.img<AvatarShapeProperties>`
   width: 100%;
 `;
 
-// TODO: this duplicate the mask
+const StyledAvatar = styled.img<StyledAvatarProperties>`
+  ${commonAvatarStyle}
+  opacity: ${({ $isLoaded }) => ($isLoaded ? "1" : "0")};
+  transition: ${({ theme }: { theme: Theme }) =>
+    theme.transitions.create("opacity", {
+      duration: theme.transitions.duration.shortest,
+      easing: theme.transitions.easing.easeOut,
+    })};
+`;
+
+const DefaultAvatar = styled.svg<DefaultAvatarProperties>`
+  ${commonAvatarStyle}
+`;
+
 export const Avatar: React.FC<AvatarProperties> = ({
   isSquared,
   alternativeText,
@@ -136,17 +157,16 @@ export const Avatar: React.FC<AvatarProperties> = ({
   borderWidth = "none",
   borderColor,
 }) => {
-  // This function is triggered if an error occurs while loading an image
-  const imageOnErrorHandler = (
-    event: React.SyntheticEvent<HTMLImageElement, Event>,
-  ) => {
-    // event.currentTarget.src = alternativeImage; // FIXME: This is a fallback image
-    event.currentTarget.src =
-      "https://images.unsplash.com/photo-1607478900766-efe13248b125?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80";
-  };
+  // Theme
+  const theme = useTheme();
+
+  // State
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [isValidSrc, setIsValidSrc] = useState(Boolean(imageUrl));
 
   return (
     <>
+      {/* TODO: check support for external clip path url */}
       <HiddenMask>
         <clipPath id={squaredMaskID} clipPathUnits="objectBoundingBox">
           {/* transform an absolute path to relative with: https://yoksel.github.io/relative-clip-path/ */}
@@ -167,12 +187,46 @@ export const Avatar: React.FC<AvatarProperties> = ({
           $borderColor={borderColor}
           $borderWidth={borderWidth}
         >
-          <StyledAvatar
-            $isSquared={isSquared ?? false}
-            alt={alternativeText}
-            src={imageUrl}
-            onError={imageOnErrorHandler}
-          />
+          {isValidSrc ? (
+            <StyledAvatar
+              $isSquared={isSquared ?? false}
+              $isLoaded={imageLoaded}
+              alt={alternativeText}
+              src={imageUrl}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => setIsValidSrc(false)}
+            />
+          ) : (
+            <DefaultAvatar
+              $isSquared={isSquared ?? false}
+              viewBox="0 0 176 176"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlSpace="preserve"
+              style={{
+                fillRule: "evenodd",
+                clipRule: "evenodd",
+                strokeLinejoin: "round",
+                strokeMiterlimit: 2,
+              }}
+            >
+              <path
+                fill={theme.palette.background.default}
+                d="M0 0h176v176H0z"
+              />
+              <path
+                d="M10.769 176c3.306-39.737 36.647-71 77.231-71 40.584 0 73.925 31.263 77.231 71H10.769Z"
+                fill={theme.palette.primary.main}
+                opacity={0.4}
+              />
+              <circle
+                cx="88"
+                cy="88"
+                r="44"
+                fill={theme.palette.primary.main}
+                opacity={0.4}
+              />
+            </DefaultAvatar>
+          )}
         </Border>
       </Wrapper>
     </>

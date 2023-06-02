@@ -12,4 +12,5 @@ export const CardContent = styled.div<CardContentProperties>`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing(0.5)}px;
   padding: ${({ theme }) => theme.spacing(2)}px;
+  padding-top: ${({ theme }) => theme.spacing(1)}px;
 `;

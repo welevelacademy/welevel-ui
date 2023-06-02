@@ -13,7 +13,7 @@ interface CardFooterProperties {
 const Wrapper = styled.div`
   display: flex;
   // TODO: Remove min height if we drop the bottom avatar on course and event card
-  min-height: 24px;
+  min-height: ${({ theme }) => theme.spacing(3)}px;
   align-items: center;
 `;
 
