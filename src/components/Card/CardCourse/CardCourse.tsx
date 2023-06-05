@@ -25,22 +25,22 @@ export const CardCourse: React.FC<CardCourseProperties> = ({
   imageUrl,
 }) => {
   return (
-    <CardComponent.Paper>
-      <CardComponent.Cover $imageUrl={imageUrl} />
-      <CardComponent.Content>
-        <CardComponent.Header
-          endDecorator={
-            <CardComponent.HeaderReview>4,5</CardComponent.HeaderReview>
-          }
-        >
-          {"Course"}
-        </CardComponent.Header>
-        <CardComponent.Body
-          title={name}
-          description={description}
-        ></CardComponent.Body>
-        <CardComponent.Footer>8 corsi</CardComponent.Footer>
-      </CardComponent.Content>
-    </CardComponent.Paper>
+    <CardComponent.Wrapper>
+      <CardComponent.Paper>
+        <CardComponent.Cover $imageUrl={imageUrl} />
+        <CardComponent.Content>
+          <CardComponent.Header
+            endDecorator={
+              <CardComponent.HeaderReview>4,5</CardComponent.HeaderReview>
+            }>
+            {"Course"}
+          </CardComponent.Header>
+          <CardComponent.Body
+            title={name}
+            description={description}></CardComponent.Body>
+          <CardComponent.Footer>8 corsi</CardComponent.Footer>
+        </CardComponent.Content>
+      </CardComponent.Paper>
+    </CardComponent.Wrapper>
   );
 };

@@ -1,6 +1,7 @@
 import { Meta, Story } from "@storybook/react";
 
 import { CardCourse, CardCourseProperties } from "./CardCourse";
+import { CardStudyPlan, CardStudyPlanProperties } from "./CardStudyPlan";
 import { CardUser, CardUserProperties } from "./CardUser";
 
 export default {
@@ -12,6 +13,7 @@ type StoryAllCardsProperties = {
   cardTeacher: CardUserProperties;
   cardAgency: CardUserProperties;
   cardCourse: CardCourseProperties;
+  cardStudyPlan: CardStudyPlanProperties;
 };
 
 //👇 We create a “template” of how args map to rendering
@@ -21,11 +23,11 @@ const Template: Story<StoryAllCardsProperties> = (args) => (
       display: "grid",
       gap: "16px",
       gridTemplateColumns: "repeat(auto-fit, minmax(min-content, 280px))",
-    }}
-  >
+    }}>
     <CardUser {...args.cardTeacher} />
     <CardCourse {...args.cardCourse} />
     <CardUser {...args.cardAgency} />
+    <CardStudyPlan {...args.cardStudyPlan} />
   </div>
 );
 
@@ -51,6 +53,13 @@ Base.args = {
     Entrare in un ristorante e notare la cura nei dettagli della sala, dall’ambiente alla corretta armocromia in tavola, 
     sicuramente gioca a vantaggio del tuo cliente e alla sua voglia di sedersi e godersi il pranzo o la cena.`,
     name: "Istruzioni per una mise en place a regola d'arte",
-    imageUrl: "https://source.unsplash.com/random/600×600/?food-presentation",
+    imageUrl:
+      "https://source.unsplash.com/random/854×540/?food-presentation&orientation=landscape",
+  },
+  cardStudyPlan: {
+    description: `Sviluppa le soft skill per l'ospitalità e diventa un leader nell'hospitality`,
+    name: "Soft skills & personal branding",
+    imageUrl:
+      "https://source.unsplash.com/random/854×540/?cheers&orientation=landscape",
   },
 };

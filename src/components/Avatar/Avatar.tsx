@@ -1,4 +1,4 @@
-import { Theme, useTheme } from "@material-ui/core";
+import { useTheme } from "@material-ui/core";
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
 
@@ -137,7 +137,7 @@ const commonAvatarStyle = css<CommonAvatarStyleProperties>`
 const StyledAvatar = styled.img<StyledAvatarProperties>`
   ${commonAvatarStyle}
   opacity: ${({ $isLoaded }) => ($isLoaded ? "1" : "0")};
-  transition: ${({ theme }: { theme: Theme }) =>
+  transition: ${({ theme }) =>
     theme.transitions.create("opacity", {
       duration: theme.transitions.duration.shortest,
       easing: theme.transitions.easing.easeOut,
@@ -185,8 +185,7 @@ export const Avatar: React.FC<AvatarProperties> = ({
         <Border
           $isSquared={isSquared ?? false}
           $borderColor={borderColor}
-          $borderWidth={borderWidth}
-        >
+          $borderWidth={borderWidth}>
           {isValidSrc ? (
             <StyledAvatar
               $isSquared={isSquared ?? false}
@@ -207,8 +206,7 @@ export const Avatar: React.FC<AvatarProperties> = ({
                 clipRule: "evenodd",
                 strokeLinejoin: "round",
                 strokeMiterlimit: 2,
-              }}
-            >
+              }}>
               <path
                 fill={theme.palette.background.default}
                 d="M0 0h176v176H0z"

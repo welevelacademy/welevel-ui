@@ -13,4 +13,5 @@ export const CardCover = styled.div<CardCoverProperties>`
   background-repeat: no-repeat;
   background-size: cover;
   flex: 0 0 auto;
+  position: relative;
 `;

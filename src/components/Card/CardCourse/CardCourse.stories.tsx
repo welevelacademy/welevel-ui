@@ -22,7 +22,8 @@ Base.args = {
   Entrare in un ristorante e notare la cura nei dettagli della sala, dall’ambiente alla corretta armocromia in tavola, 
   sicuramente gioca a vantaggio del tuo cliente e alla sua voglia di sedersi e godersi il pranzo o la cena.`,
   name: "Istruzioni per una mise en place a regola d'arte",
-  imageUrl: "https://source.unsplash.com/random/600×600/?food-presentation",
+  imageUrl:
+    "https://source.unsplash.com/random/854×540/?food-presentation&orientation=landscape",
 };
 
 // LONG CONTENT
@@ -33,7 +34,8 @@ LongContent.args = {
   Entrare in un ristorante e notare la cura nei dettagli della sala, dall’ambiente alla corretta armocromia in tavola, 
   sicuramente gioca a vantaggio del tuo cliente e alla sua voglia di sedersi e godersi il pranzo o la cena.`,
   name: "Istruzioni per una mise en place a regola d'arte",
-  imageUrl: "https://source.unsplash.com/random/600×600/?food-presentation",
+  imageUrl:
+    "https://source.unsplash.com/random/854×540/?food-presentation&orientation=landscape",
 };
 
 // EMPTY CONTENT

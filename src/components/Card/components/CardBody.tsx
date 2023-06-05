@@ -50,6 +50,7 @@ export const CardBody: React.FC<CardBodyProperties> = ({
     <Wrapper>
       <Title>{title}</Title>
       <Description>{description}</Description>
+
       {children}
     </Wrapper>
   );

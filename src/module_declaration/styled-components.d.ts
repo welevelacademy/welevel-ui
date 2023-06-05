@@ -1,5 +1,6 @@
 import { Theme } from "@material-ui/core";
 
+// Extend default styled component theme interface
 // import original module declarations
 import "styled-components";
 

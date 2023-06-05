@@ -1,3 +1,4 @@
+import { motion } from "framer-motion/dist/framer-motion";
 import React from "react";
 import styled from "styled-components";
 
@@ -13,12 +14,6 @@ export interface CardUserProperties {
 }
 
 // Styled
-const Wrapper = styled.div`
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  position: relative;
-`;
 
 // Aspect ratio spacer
 // two elements that help create an 16/9 area to simulate the space of e normal card cover
@@ -32,7 +27,22 @@ const AspectSpacerBottom = styled.div`
 `;
 
 // An element that reproduce the dimension of the card cover in the other card components
-const AspectAvatarContainer = styled.div`
+const AspectAvatarContainer = styled(motion.div).attrs({
+  variants: {
+    rest: { scale: 1 },
+    hover: {
+      scale: 1.04,
+    },
+  },
+  transition: {
+    scale: {
+      type: "spring",
+      damping: 5,
+      stiffness: 100,
+      restDelta: 0.001,
+    },
+  },
+})`
   aspect-ratio: 16/9;
   display: flex;
   justify-content: center;
@@ -48,6 +58,7 @@ export const CardUser: React.FC<CardUserProperties> = ({
   type,
 }) => {
   const isAvatarSquared = type === "agency";
+
   // FIXME: come gestire traduzione ?
   // o va riportata su tutte le rotte o si devono rendere comuni anche i dizionari
   // FIXME: REMOVE THIS
@@ -57,7 +68,7 @@ export const CardUser: React.FC<CardUserProperties> = ({
   }[type.toString()];
 
   return (
-    <Wrapper>
+    <CardComponent.Wrapper>
       <AspectSpacerTop />
 
       <AspectAvatarContainer>
@@ -77,17 +88,15 @@ export const CardUser: React.FC<CardUserProperties> = ({
           <CardComponent.Header
             endDecorator={
               <CardComponent.HeaderReview>4,5</CardComponent.HeaderReview>
-            }
-          >
+            }>
             {role ?? ""}
           </CardComponent.Header>
           <CardComponent.Body
             title={name}
-            description={description}
-          ></CardComponent.Body>
+            description={description}></CardComponent.Body>
           <CardComponent.Footer>8 corsi</CardComponent.Footer>
         </CardComponent.Content>
       </CardComponent.Paper>
-    </Wrapper>
+    </CardComponent.Wrapper>
   );
 };
