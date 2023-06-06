@@ -26,7 +26,8 @@ export const Cockade: React.FC = () => {
       fillRule="evenodd"
       clipRule="evenodd"
       strokeLinejoin="round"
-      strokeMiterlimit="2">
+      strokeMiterlimit="2"
+    >
       <path id="Cockade" fill="none" d="M0 0h960v960H0z" />
       <clipPath id="_clip1">
         <path id="Cockade1" d="M0 0h960v960H0z" />
@@ -113,7 +114,8 @@ export const Cockade: React.FC = () => {
           x2="1"
           y2="0"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="matrix(0 600 -600 0 400.315 380)">
+          gradientTransform="matrix(0 600 -600 0 400.315 380)"
+        >
           <stop
             offset="0"
             stopColor={theme.palette.common.black}
@@ -132,7 +134,8 @@ export const Cockade: React.FC = () => {
           x2="1"
           y2="0"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="matrix(0 506.949 -135.836 0 480 105.551)">
+          gradientTransform="matrix(0 506.949 -135.836 0 480 105.551)"
+        >
           <stop
             offset="0"
             stopColor={theme.palette.common.black}
@@ -151,7 +154,8 @@ export const Cockade: React.FC = () => {
           x2="1"
           y2="0"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="matrix(0 361.25 -120.417 0 480 230)">
+          gradientTransform="matrix(0 361.25 -120.417 0 480 230)"
+        >
           <stop
             offset="0"
             stopColor={theme.palette.common.black}
@@ -170,7 +174,8 @@ export const Cockade: React.FC = () => {
           x2="1"
           y2="0"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="matrix(0 680 -340 0 480 400)">
+          gradientTransform="matrix(0 680 -340 0 480 400)"
+        >
           <stop
             offset="0"
             stopColor={theme.palette.common.black}
@@ -189,7 +194,8 @@ export const Cockade: React.FC = () => {
           x2="1"
           y2="0"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="matrix(0 680 -294.449 0 480 400)">
+          gradientTransform="matrix(0 680 -294.449 0 480 400)"
+        >
           <stop
             offset="0"
             stopColor={theme.palette.common.black}
@@ -208,7 +214,8 @@ export const Cockade: React.FC = () => {
           x2="1"
           y2="0"
           gradientUnits="userSpaceOnUse"
-          gradientTransform="matrix(0 680 -169.331 0 480.669 400)">
+          gradientTransform="matrix(0 680 -169.331 0 480.669 400)"
+        >
           <stop
             offset="0"
             stopColor={theme.palette.common.black}

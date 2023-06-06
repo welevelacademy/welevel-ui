@@ -23,7 +23,8 @@ const Template: Story<StoryAllCardsProperties> = (args) => (
       display: "grid",
       gap: "16px",
       gridTemplateColumns: "repeat(auto-fit, minmax(min-content, 280px))",
-    }}>
+    }}
+  >
     <CardUser {...args.cardTeacher} />
     <CardCourse {...args.cardCourse} />
     <CardUser {...args.cardAgency} />
@@ -46,7 +47,7 @@ Base.args = {
       "Ottimizziamo il tuo modo di lavorare e aumentiamo i profitti del tuo hotel con i giusti strumenti e le migliori soluzioni.",
     name: "Hotelperformance",
     imageUrl: "https://source.unsplash.com/random/600×600/?logo",
-    type: "agency",
+    type: "partnerAgency",
   },
   cardCourse: {
     description: `Sai che anche la giusta mise en place può farti vendere un tavolo? 

@@ -185,7 +185,8 @@ export const Avatar: React.FC<AvatarProperties> = ({
         <Border
           $isSquared={isSquared ?? false}
           $borderColor={borderColor}
-          $borderWidth={borderWidth}>
+          $borderWidth={borderWidth}
+        >
           {isValidSrc ? (
             <StyledAvatar
               $isSquared={isSquared ?? false}
@@ -206,7 +207,8 @@ export const Avatar: React.FC<AvatarProperties> = ({
                 clipRule: "evenodd",
                 strokeLinejoin: "round",
                 strokeMiterlimit: 2,
-              }}>
+              }}
+            >
               <path
                 fill={theme.palette.background.default}
                 d="M0 0h176v176H0z"

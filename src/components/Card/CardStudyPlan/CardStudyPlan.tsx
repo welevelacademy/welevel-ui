@@ -1,5 +1,6 @@
 import { motion } from "framer-motion/dist/framer-motion";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 import { CardComponent } from "..";
@@ -47,6 +48,8 @@ export const CardStudyPlan: React.FC<CardStudyPlanProperties> = ({
   description,
   imageUrl,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <CardComponent.Wrapper>
       <CardComponent.Paper>
@@ -56,10 +59,11 @@ export const CardStudyPlan: React.FC<CardStudyPlanProperties> = ({
           </CockadeWrapper>
         </CardComponent.Cover>
         <CardComponent.Content>
-          <CardComponent.Header>Study plan</CardComponent.Header>
+          <CardComponent.Header>{t("certifiedStudyPlan")}</CardComponent.Header>
           <CardComponent.Body
             title={name}
-            description={description}></CardComponent.Body>
+            description={description}
+          ></CardComponent.Body>
           <CardComponent.Footer>8 corsi</CardComponent.Footer>
         </CardComponent.Content>
       </CardComponent.Paper>

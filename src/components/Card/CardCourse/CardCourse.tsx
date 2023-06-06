@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import { CardComponent } from "..";
 
@@ -24,6 +25,8 @@ export const CardCourse: React.FC<CardCourseProperties> = ({
   description,
   imageUrl,
 }) => {
+  const { t } = useTranslation();
+
   return (
     <CardComponent.Wrapper>
       <CardComponent.Paper>
@@ -32,13 +35,18 @@ export const CardCourse: React.FC<CardCourseProperties> = ({
           <CardComponent.Header
             endDecorator={
               <CardComponent.HeaderReview>4,5</CardComponent.HeaderReview>
-            }>
-            {"Course"}
+            }
+          >
+            {
+              // FIXME: check if this is the right approach (without the default NS in t())
+            }
+            {t("welevelUICommon:course")}
           </CardComponent.Header>
           <CardComponent.Body
             title={name}
-            description={description}></CardComponent.Body>
-          <CardComponent.Footer>8 corsi</CardComponent.Footer>
+            description={description}
+          ></CardComponent.Body>
+          <CardComponent.Footer>FIXME: price?</CardComponent.Footer>
         </CardComponent.Content>
       </CardComponent.Paper>
     </CardComponent.Wrapper>

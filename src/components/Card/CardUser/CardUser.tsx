@@ -1,16 +1,18 @@
 import { motion } from "framer-motion/dist/framer-motion";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 
 import { CardComponent } from "..";
 import { Avatar } from "../../Avatar";
 
 // Type
+type CardUserType = "teacher" | "partnerAgency";
 export interface CardUserProperties {
   name: string;
   description: string;
   imageUrl: string;
-  type: "teacher" | "agency";
+  type: CardUserType;
 }
 
 // Styled
@@ -57,15 +59,15 @@ export const CardUser: React.FC<CardUserProperties> = ({
   imageUrl,
   type,
 }) => {
-  const isAvatarSquared = type === "agency";
+  const { t } = useTranslation();
 
-  // FIXME: come gestire traduzione ?
-  // o va riportata su tutte le rotte o si devono rendere comuni anche i dizionari
-  // FIXME: REMOVE THIS
-  const role = {
-    agency: "Azienda partner",
-    teacher: "Docente",
-  }[type.toString()];
+  // Data
+  const isAvatarSquared = type === "partnerAgency";
+
+  const role = new Map<CardUserType, string>([
+    ["partnerAgency", t("partnerAgency")],
+    ["teacher", t("teacher")],
+  ]);
 
   return (
     <CardComponent.Wrapper>
@@ -88,12 +90,14 @@ export const CardUser: React.FC<CardUserProperties> = ({
           <CardComponent.Header
             endDecorator={
               <CardComponent.HeaderReview>4,5</CardComponent.HeaderReview>
-            }>
-            {role ?? ""}
+            }
+          >
+            {role.get(type) ?? ""}
           </CardComponent.Header>
           <CardComponent.Body
             title={name}
-            description={description}></CardComponent.Body>
+            description={description}
+          ></CardComponent.Body>
           <CardComponent.Footer>8 corsi</CardComponent.Footer>
         </CardComponent.Content>
       </CardComponent.Paper>
