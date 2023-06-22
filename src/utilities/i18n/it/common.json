@@ -1,6 +1,16 @@
 {
-  "course": "Corso",
-  "teacher": "Docente",
-  "certifiedStudyPlan": "Percorso certificato",
-  "partnerAgency": "Azienda Partner"
+  "course_one": "Corso",
+  "course_other": "Corsi",
+
+  "certifiedStudyPlan_one": "Percorso certificato",
+  "certifiedStudyPlan_other": "Percorsi certificati",
+
+  "event_one": "Event",
+  "event_other": "Events",
+
+  "teacher_one": "Docente",
+  "teacher_other": "Docenti",
+
+  "partnerAgency_one": "Azienda Partner",
+  "partnerAgency_other": "Aziende Partner"
 }

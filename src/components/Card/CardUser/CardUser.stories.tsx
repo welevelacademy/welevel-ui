@@ -1,6 +1,11 @@
 import { Meta, Story } from "@storybook/react";
 
+import { ContentGrid } from "../../ContentGrid";
 import { CardUser, CardUserProperties } from "./CardUser";
+import {
+  CardUserSkeleton,
+  CardUserSkeletonProperties,
+} from "./CardUser.skeleton";
 
 export default {
   component: CardUser,
@@ -43,5 +48,28 @@ EmptyContent.args = {
   description: "",
   name: "",
   imageUrl: "",
+  type: "teacher",
+};
+
+// Skeleton
+const SkeletonTemplate: Story<CardUserSkeletonProperties> = (args) => (
+  <ContentGrid
+    isLoading={false}
+    loadingItem={<div></div>}
+    numberOfLoadingRows={2}
+  >
+    <CardUserSkeleton {...args} />
+    <CardUser
+      description="Descrizione"
+      name="Francesca Toni"
+      type="teacher"
+      imageUrl="broken"
+    />
+  </ContentGrid>
+);
+
+export const Skeleton = SkeletonTemplate.bind({});
+
+Skeleton.args = {
   type: "teacher",
 };

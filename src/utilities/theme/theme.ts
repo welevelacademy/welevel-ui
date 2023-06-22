@@ -2,11 +2,12 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 import { darkColors, getShadows, lightColors } from "./constants";
 
-// FIXME: check this theme and add tertiary
+// FIXME: check this theme
 
 const baseTheme = createMuiTheme({
   // TODO: I don't like a theme that based the elevation only on shadow
   // //  this not support a good elevetion system on dark mode
+
   shape: {
     borderRadius: 8,
   },
@@ -20,66 +21,80 @@ const baseThemeTypography = createMuiTheme({
       fontSize: "2.4rem",
       fontWeight: 700,
       lineHeight: "1.125",
-      color: lightColors.textPrimary,
     },
     h2: {
       fontSize: "2rem",
       fontWeight: 700,
       lineHeight: "1.125",
-      color: lightColors.textPrimary,
     },
     h3: {
       fontSize: "1.4rem",
       fontWeight: 700,
       lineHeight: "1.125",
-      color: lightColors.textPrimary,
     },
     h4: {
       fontSize: "1rem",
-      lineHeight: "1.25",
+      lineHeight: "1.375",
       fontWeight: 600,
-      color: lightColors.textPrimary,
     },
     h5: {
       fontSize: "0.875rem",
-      lineHeight: "1.25",
+      lineHeight: "1.375",
       fontWeight: 600,
-      color: lightColors.textPrimary,
     },
     body1: {
       fontSize: "1rem",
       lineHeight: "1.375",
-      color: lightColors.textPrimary,
     },
     body2: {
       fontSize: "0.875rem",
       lineHeight: "1.375",
-      color: lightColors.textPrimary,
     },
     button: {
       textTransform: "none",
       fontFamily: "Inter",
       fontWeight: 600,
-      // color: colors.textWhitePrimary,
+      fontSize: "0.875rem",
+      lineHeight: "1.25",
+    },
+    overline: {
+      fontSize: "0.875rem",
+      lineHeight: "1.25",
+      fontWeight: 600,
+      textTransform: "initial",
     },
   },
 });
 
-// TODO: use base theme colors and properties
 const baseThemeOverrides = createMuiTheme({
   overrides: {
     MuiButton: {
-      contained: {
+      root: {
         boxShadow: "none",
-        padding: `${baseTheme.spacing(1)}px ${baseTheme.spacing(3)}px`,
+        padding: `${baseTheme.spacing(1, 3)}`,
         height: `${baseTheme.spacing(6)}px`,
+      },
+      sizeSmall: {
+        padding: `${baseTheme.spacing(0.5, 1.5)}`,
+        height: `${baseTheme.spacing(4)}px`,
       },
       outlined: {
         borderWidth: "1px",
-        padding: `${baseTheme.spacing(1)}px ${baseTheme.spacing(3)}px`,
-        height: `${baseTheme.spacing(6)}px`,
       },
     },
+    // theme in welevel now
+    // MuiButton: {
+    //   contained: {
+    //     boxShadow: "none",
+    //     padding: `${baseTheme.spacing(1, 3)}`,
+    //     height: `${baseTheme.spacing(6)}px`,
+    //   },
+    //   outlined: {
+    //     borderWidth: "1px",
+    //     padding: `${baseTheme.spacing(1, 3)}`,
+    //     height: `${baseTheme.spacing(6)}px`,
+    //   },
+    // },
   },
 });
 
@@ -120,6 +135,11 @@ export const lightTheme = createMuiTheme({
   // Typography
   typography: {
     ...baseThemeTypography.typography,
+    // Only colors change
+    overline: {
+      ...baseThemeTypography.typography.overline,
+      color: lightColors.textSecondary,
+    },
   },
   // Shadows
   shadows: getShadows(lightColors.shadowColor),
@@ -192,6 +212,10 @@ export const darkTheme = createMuiTheme({
     body2: {
       ...baseThemeTypography.typography.body2,
       color: darkColors.textPrimary,
+    },
+    overline: {
+      ...baseThemeTypography.typography.overline,
+      color: darkColors.textSecondary,
     },
   },
   // Shadows

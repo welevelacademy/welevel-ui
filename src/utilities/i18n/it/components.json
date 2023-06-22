@@ -1,5 +1,21 @@
 {
   "card": {
     "test": "test"
+  },
+  "EmptyMessage": {
+    "title": "Questa sezione è ancora vuota",
+    "description": "Ricorda, le cose migliori capitano a chi sa aspettare"
+  },
+  "ContentGridShowMore": {
+    "showMoreMessage": "{{items}} di {{total}}",
+    "showMoreCTA": "Vedi di più ({{count}})"
+  },
+  "ReviewSummary": {
+    "summary_zero": "Nessuna recensione",
+    "summary_one": "<strong>{{value, number(minimumFractionDigits: 1; maximumFractionDigits: 1)}}</strong> · {{count, number}} recensione",
+    "summary_other": "<strong>{{value, number(minimumFractionDigits: 1; maximumFractionDigits: 1)}}</strong> · {{count, number}} recensioni"
+  },
+  "ShareMenu": {
+    "CTA": "Condividi"
   }
 }

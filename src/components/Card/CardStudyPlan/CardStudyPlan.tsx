@@ -1,6 +1,6 @@
 import { motion } from "framer-motion/dist/framer-motion";
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { Trans } from "react-i18next";
 import styled from "styled-components";
 
 import { CardComponent } from "..";
@@ -16,11 +16,11 @@ export interface CardStudyPlanProperties {
   name: string;
   description: string;
   imageUrl: string;
+  isInteractive?: boolean;
 }
 
 const CockadeWrapper = styled(motion.svg).attrs({
   variants: {
-    rest: { scale: 1, y: 0 },
     hover: {
       scale: 1.1,
       y: 4,
@@ -31,7 +31,7 @@ const CockadeWrapper = styled(motion.svg).attrs({
       type: "spring",
       damping: 5,
       stiffness: 100,
-      restDelta: 0.001,
+      // restDelta: 0.001,
     },
   },
 })`
@@ -47,11 +47,11 @@ export const CardStudyPlan: React.FC<CardStudyPlanProperties> = ({
   name,
   description,
   imageUrl,
+  isInteractive = true,
+  // ...other // FIXME: check how to pass
 }) => {
-  const { t } = useTranslation();
-
   return (
-    <CardComponent.Wrapper>
+    <CardComponent.Wrapper isInteractive={isInteractive}>
       <CardComponent.Paper>
         <CardComponent.Cover $imageUrl={imageUrl}>
           <CockadeWrapper>
@@ -59,7 +59,9 @@ export const CardStudyPlan: React.FC<CardStudyPlanProperties> = ({
           </CockadeWrapper>
         </CardComponent.Cover>
         <CardComponent.Content>
-          <CardComponent.Header>{t("certifiedStudyPlan")}</CardComponent.Header>
+          <CardComponent.Header>
+            <Trans i18nKey="certifiedStudyPlan"></Trans>
+          </CardComponent.Header>
           <CardComponent.Body
             title={name}
             description={description}

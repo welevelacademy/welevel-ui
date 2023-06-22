@@ -5,7 +5,7 @@ import { Avatar, AvatarProperties } from "./Avatar";
 
 export default {
   component: Avatar,
-  title: "Avatar",
+  title: "DataDisplay/Avatar",
 } as Meta;
 
 //👇 We create a “template” of how args map to rendering
@@ -38,6 +38,7 @@ Base.args = {
   shadow: "stroke",
   size: "lg",
   borderWidth: "sm",
+  isSkeleton: false,
 };
 
 // EMPTY CONTENT
@@ -47,4 +48,14 @@ EmptyContent.args = {
   alternativeText: "Francesco Toni",
   imageUrl: "welevel-asset-wrong-link",
   borderWidth: "sm",
+};
+
+// SKELETON AND LOADING
+export const SkeletonAndLoading = Template.bind({});
+
+SkeletonAndLoading.args = {
+  alternativeText: "Francesco Toni",
+  imageUrl: undefined,
+  borderWidth: "sm",
+  isSkeleton: true,
 };

@@ -1,6 +1,16 @@
 {
-  "course": "Course",
-  "teacher": "Teacher",
-  "certifiedStudyPlan": "Certified study plan",
-  "partnerAgency": "Partner agency"
+  "course_one": "Course",
+  "course_other": "Courses",
+
+  "certifiedStudyPlan_one": "Certified study plan",
+  "certifiedStudyPlan_other": "Certified study plan",
+
+  "event_one": "Event",
+  "event_other": "Events",
+
+  "teacher_one": "Teacher",
+  "teacher_other": "Teachers",
+
+  "partnerAgency_one": "Partner agency",
+  "partnerAgency_other": "Partner agency"
 }

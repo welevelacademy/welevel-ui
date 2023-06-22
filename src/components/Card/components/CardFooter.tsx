@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 // Type
 interface CardFooterProperties {
-  children: string;
+  children: React.ReactNode;
   startDecorator?: React.ReactNode;
   endDecorator?: React.ReactNode;
 }

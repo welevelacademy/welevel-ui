@@ -7,7 +7,7 @@ export const lightColors = {
 
   textPrimary: "rgba(0,0,0,0.96)",
   textSecondary: "rgba(0,0,0,0.56)",
-  textDisabled: "rgba(0,0,0,0.32)",
+  textDisabled: "rgba(0,0,0,0.24)",
   textHint: "rgba(0,0,0,0.32)",
 
   success: "#33CC66",
@@ -22,14 +22,14 @@ export const lightColors = {
 
 export const darkColors = {
   primary: "#ff8981",
-  secondary: "#2c2c2c",
+  secondary: "#F5F5F2",
 
   // Team dashboard accent color
   tertiary: "#96ccff",
 
   textPrimary: "rgba(255,255,255,0.96)",
-  textSecondary: "rgba(255,255,255,0.72)",
-  textDisabled: "rgba(255,255,255,0.48)",
+  textSecondary: "rgba(255,255,255,0.64)",
+  textDisabled: "rgba(255,255,255,0.32)",
   textHint: "rgba(255,255,255,0.48)",
 
   success: "#33CC66",
@@ -39,5 +39,5 @@ export const darkColors = {
   shadowColor: "rgba(32,26,25,0.84)",
 
   body: "#201a19",
-  surface: "#534342",
+  surface: "#3A2F2E",
 };

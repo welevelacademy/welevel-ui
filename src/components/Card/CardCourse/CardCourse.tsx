@@ -17,6 +17,7 @@ export interface CardCourseProperties {
   name: string;
   description: string;
   imageUrl: string;
+  isInteractive?: boolean;
 }
 
 // Component
@@ -24,11 +25,12 @@ export const CardCourse: React.FC<CardCourseProperties> = ({
   name,
   description,
   imageUrl,
+  isInteractive = true,
 }) => {
   const { t } = useTranslation();
 
   return (
-    <CardComponent.Wrapper>
+    <CardComponent.Wrapper isInteractive={isInteractive}>
       <CardComponent.Paper>
         <CardComponent.Cover $imageUrl={imageUrl} />
         <CardComponent.Content>
@@ -37,10 +39,7 @@ export const CardCourse: React.FC<CardCourseProperties> = ({
               <CardComponent.HeaderReview>4,5</CardComponent.HeaderReview>
             }
           >
-            {
-              // FIXME: check if this is the right approach (without the default NS in t())
-            }
-            {t("welevelUICommon:course")}
+            {t("course_one")}
           </CardComponent.Header>
           <CardComponent.Body
             title={name}

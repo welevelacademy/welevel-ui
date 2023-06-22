@@ -1,0 +1,14 @@
+{
+  "LayoutUser": {
+    "courseSectionTitle": "{{userName}} courses",
+    "eventSectionTitle": "{{userName}} events",
+    "partnerAgencySectionTitle": "{{userName}} workplaces",
+    "teacherSectionTitle": "{{userName}} teachers"
+  },
+  "LayoutUserInfo": {
+    "infoTitle": "Info about {{userName}}",
+    "topicsTitle": "Topics",
+    "reviewsTitle": "Course reviews",
+    "linksTitle": "Links"
+  }
+}

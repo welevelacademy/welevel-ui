@@ -1,5 +1,21 @@
 {
   "card": {
     "test": "test"
+  },
+  "EmptyMessage": {
+    "title": "This section is still empty",
+    "description": "Remember, the best things come to those who wait."
+  },
+  "ContentGridShowMore": {
+    "showMoreMessage": "{{items}} of {{total}}",
+    "showMoreCTA": "Show more ({{count}})"
+  },
+  "ReviewSummary": {
+    "summary_zero": "No reviews yet",
+    "summary_one": "<strong>{{value, number(minimumFractionDigits: 1; maximumFractionDigits: 1)}}</strong> · {{count, number}} review",
+    "summary_other": "<strong>{{value, number(minimumFractionDigits: 1; maximumFractionDigits: 1)}}</strong> · {{count, number}} reviews"
+  },
+  "ShareMenu": {
+    "CTA": "share"
   }
 }
