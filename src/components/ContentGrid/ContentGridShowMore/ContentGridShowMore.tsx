@@ -69,7 +69,7 @@ export const ContentGridShowMore: React.FC<ContentGridShowMoreProperties> = ({
         </Typography>
       )}
 
-      {numberOfItems === 0 ? (
+      {numberOfItems === 0 && !isLoading ? (
         <EmptyMessage />
       ) : (
         <>

@@ -2,9 +2,14 @@ import { Button, Paper, Typography } from "@material-ui/core";
 import { Meta, Story } from "@storybook/react";
 import { useState } from "react";
 
-import SegmentedControl, {
+import {
+  SegmentedControl,
   SegmentedControlProperties,
 } from "./SegmentedControl";
+import {
+  SegmentedControlSkeleton,
+  SegmentedControlSkeletonProperties,
+} from "./SegmentedControl.skeleton";
 
 export default {
   component: SegmentedControl,
@@ -75,32 +80,6 @@ Base.args = {
 };
 
 // BASE
-export const LongContent = Template.bind({});
-
-LongContent.args = {
-  items: [
-    {
-      id: "1",
-      label: "Corsi del docente selezionato",
-    },
-    {
-      id: "2",
-      label: "Eventi live",
-    },
-    {
-      id: "3",
-      label: "Percorsi certificati",
-    },
-    {
-      id: "4",
-      label: "Piani di studio personalizzati",
-    },
-    {
-      id: "5",
-      label: "Corsi food & beverage",
-    },
-  ],
-};
 
 // BASE
 export const CustomItem = Template.bind({});
@@ -114,6 +93,7 @@ CustomItem.args = {
           style={{
             display: "flex",
             flexDirection: "column",
+            padding: "8px 12px",
           }}
         >
           <Typography variant="overline">Ven</Typography>
@@ -128,6 +108,7 @@ CustomItem.args = {
           style={{
             display: "flex",
             flexDirection: "column",
+            padding: "8px 12px",
           }}
         >
           <Typography variant="overline">Sab</Typography>
@@ -142,6 +123,7 @@ CustomItem.args = {
           style={{
             display: "flex",
             flexDirection: "column",
+            padding: "8px 12px",
           }}
         >
           <Typography variant="overline" color="textSecondary">
@@ -155,3 +137,25 @@ CustomItem.args = {
     },
   ],
 };
+
+// Skeleton
+const SkeletonTemplate: Story<SegmentedControlSkeletonProperties> = (args) => {
+  return (
+    <div>
+      <Paper
+        style={{
+          width: "100%",
+          padding: "8px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <SegmentedControlSkeleton {...args} />
+      </Paper>
+    </div>
+  );
+};
+
+export const Skeleton = SkeletonTemplate.bind({});
+
+Skeleton.args = {};

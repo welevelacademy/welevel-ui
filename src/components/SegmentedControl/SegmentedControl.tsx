@@ -46,7 +46,6 @@ const ItemWrapper = styled(motion.div)`
   flex: 1 0 auto;
   justify-content: center;
   min-height: ${({ theme }) => theme.spacing(4)}px;
-  padding: ${({ theme }) => theme.spacing(1, 2)};
   position: relative;
 `;
 
@@ -75,6 +74,7 @@ const ItemLabel = styled(Typography).attrs({
   color: "inherit",
   component: motion.span,
 })`
+  padding: ${({ theme }) => theme.spacing(1, 2)};
   position: relative;
   text-align: center;
 `;
@@ -140,8 +140,6 @@ export const SegmentedControl: React.FC<SegmentedControlProperties> = ({
     </Wrapper>
   );
 };
-
-export default SegmentedControl;
 
 // Custom hooks
 function useScrollToSelectedElement(

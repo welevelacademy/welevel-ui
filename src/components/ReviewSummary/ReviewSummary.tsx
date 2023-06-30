@@ -20,6 +20,10 @@ export const ReviewSummaryWrapper = styled.div<{ $isLoading: boolean }>`
     line-height: 1;
   }
 
+  .MuiRating-root {
+    flex: 0 0 auto;
+  }
+
   .MuiRating-iconFilled {
     color: ${({ theme }) => theme.palette.text.primary};
   }
@@ -44,7 +48,10 @@ export const ReviewSummary: React.FC<ReviewSummaryProperties> = ({
   return (
     <ReviewSummaryWrapper {...other} $isLoading={false}>
       <Rating defaultValue={value} readOnly precision={0.5} size="small" />
-      <Typography variant="body1">
+      <Typography
+        variant="body1"
+        color={numberOfReviews > 0 ? "textPrimary" : "textSecondary"}
+      >
         <Trans
           t={t}
           i18nKey={"ReviewSummary.summary"}

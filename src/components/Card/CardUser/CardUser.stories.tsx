@@ -27,6 +27,8 @@ Base.args = {
   name: "Francesco Toni",
   imageUrl: "https://source.unsplash.com/random/600×600/?portrait",
   type: "teacher",
+  reviewValue: 4.8,
+  numberOfCourses: 4,
 };
 
 // LONG CONTENT
@@ -39,6 +41,9 @@ LongContent.args = {
   name: "Hubert Blaine Wolfeschlegelsteinhausenbergerdorff Sr. Philadelphia",
   imageUrl: "https://source.unsplash.com/random/600×600/?portrait",
   type: "teacher",
+  numberOfCourses: 8,
+  numberOfEvents: 2,
+  reviewValue: 4.5,
 };
 
 // EMPTY CONTENT
@@ -64,6 +69,9 @@ const SkeletonTemplate: Story<CardUserSkeletonProperties> = (args) => (
       name="Francesca Toni"
       type="teacher"
       imageUrl="broken"
+      numberOfCourses={6}
+      numberOfEvents={1}
+      reviewValue={4.5}
     />
   </ContentGrid>
 );

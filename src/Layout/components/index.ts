@@ -3,8 +3,7 @@ import { LayoutHeroImage as HeroImage } from "./LayoutHeroImage";
 import { LayoutHeroWrapper as HeroWrapper } from "./LayoutHeroWrapper";
 import {
   LayoutNavigationHeader as NavigationHeader,
-  LayoutNavigationHeaderLink as NavigationHeaderLink,
-  LayoutNavigationHeaderLinkDisabled as NavigationHeaderLinkDisabled,
+  LayoutNavigationHeaderSkeleton as NavigationHeaderSkeleton,
 } from "./LayoutNavigationHeader";
 import { LayoutStickyBar as StickyBar } from "./LayoutStickyBar";
 
@@ -13,7 +12,8 @@ export {
   HeroImage,
   HeroWrapper,
   NavigationHeader,
-  NavigationHeaderLink,
-  NavigationHeaderLinkDisabled,
+  NavigationHeaderSkeleton,
   StickyBar,
 };
+
+// FIXME: add stories

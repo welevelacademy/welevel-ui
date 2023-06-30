@@ -1,4 +1,7 @@
-import { defaultNS, resources } from "../utilities/i18n";
+import {
+  welevelUII18nDefaultNS,
+  welevelUII18nResources,
+} from "../utilities/i18n";
 
 // react-i18next versions lower than 11.11.0
 declare module "react-i18next" {
@@ -10,7 +13,7 @@ declare module "react-i18next" {
 // react-i18next versions higher than 11.11.0
 declare module "react-i18next" {
   interface CustomTypeOptions {
-    defaultNS: typeof defaultNS;
-    resources: (typeof resources)["en"];
+    defaultNS: typeof welevelUII18nDefaultNS;
+    resources: (typeof welevelUII18nResources)["en"];
   }
 }

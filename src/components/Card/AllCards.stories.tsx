@@ -1,3 +1,4 @@
+import { AppBar, Toolbar } from "@material-ui/core";
 import { Meta, Story } from "@storybook/react";
 
 import { CardCourse, CardCourseProperties } from "./CardCourse";
@@ -18,17 +19,23 @@ type StoryAllCardsProperties = {
 
 //👇 We create a “template” of how args map to rendering
 const Template: Story<StoryAllCardsProperties> = (args) => (
-  <div
-    style={{
-      display: "grid",
-      gap: "16px",
-      gridTemplateColumns: "repeat(auto-fit, minmax(min-content, 280px))",
-    }}
-  >
-    <CardUser {...args.cardTeacher} />
-    <CardCourse {...args.cardCourse} />
-    <CardUser {...args.cardAgency} />
-    <CardStudyPlan {...args.cardStudyPlan} />
+  <div style={{}}>
+    <AppBar>
+      <Toolbar>All cards</Toolbar>
+    </AppBar>
+    <div
+      style={{
+        paddingTop: 88,
+        display: "grid",
+        gap: "16px",
+        gridTemplateColumns: "repeat(auto-fit, minmax(min-content, 280px))",
+      }}
+    >
+      <CardUser {...args.cardTeacher} />
+      <CardCourse {...args.cardCourse} />
+      <CardUser {...args.cardAgency} />
+      <CardStudyPlan {...args.cardStudyPlan} />
+    </div>
   </div>
 );
 
@@ -41,6 +48,9 @@ Base.args = {
     name: "Francesca Toni",
     imageUrl: "https://source.unsplash.com/random/600×600/?woman-portrait",
     type: "teacher",
+    numberOfCourses: 2,
+    numberOfEvents: undefined,
+    reviewValue: 4.6,
   },
   cardAgency: {
     description:
@@ -48,6 +58,9 @@ Base.args = {
     name: "Hotelperformance",
     imageUrl: "https://source.unsplash.com/random/600×600/?logo",
     type: "partnerAgency",
+    numberOfCourses: 4,
+    numberOfEvents: 2,
+    reviewValue: undefined,
   },
   cardCourse: {
     description: `Sai che anche la giusta mise en place può farti vendere un tavolo? 

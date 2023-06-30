@@ -1,12 +1,14 @@
 {
+  "home": "Home",
+
   "course_one": "Corso",
   "course_other": "Corsi",
 
   "certifiedStudyPlan_one": "Percorso certificato",
   "certifiedStudyPlan_other": "Percorsi certificati",
 
-  "event_one": "Event",
-  "event_other": "Events",
+  "event_one": "Evento",
+  "event_other": "Eventi",
 
   "teacher_one": "Docente",
   "teacher_other": "Docenti",

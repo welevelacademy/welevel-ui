@@ -1,15 +1,24 @@
 import { createMuiTheme } from "@material-ui/core/styles";
+import { tint } from "polished";
 
 import { darkColors, getShadows, lightColors } from "./constants";
 
 // FIXME: check this theme
 
 const baseTheme = createMuiTheme({
-  // TODO: I don't like a theme that based the elevation only on shadow
-  // //  this not support a good elevetion system on dark mode
-
   shape: {
     borderRadius: 8,
+  },
+  mixins: {
+    toolbar: {
+      minHeight: 64,
+      "@media (min-width:0px) and (orientation: landscape)": {
+        minHeight: 64,
+      },
+      "@media (min-width:600px)": {
+        minHeight: 64,
+      },
+    },
   },
 });
 
@@ -60,7 +69,7 @@ const baseThemeTypography = createMuiTheme({
     overline: {
       fontSize: "0.875rem",
       lineHeight: "1.25",
-      fontWeight: 600,
+      fontWeight: 500,
       textTransform: "initial",
     },
   },
@@ -82,7 +91,7 @@ const baseThemeOverrides = createMuiTheme({
         borderWidth: "1px",
       },
     },
-    // theme in welevel now
+    // theme in welevel now (not applied on the MuiButton root level)
     // MuiButton: {
     //   contained: {
     //     boxShadow: "none",
@@ -100,7 +109,7 @@ const baseThemeOverrides = createMuiTheme({
 
 // __________
 // LIGHT THEME
-// TODO: use deepMerge
+// TODO: use deepMerge?
 export const lightTheme = createMuiTheme({
   // Base Theme
   ...baseTheme,
@@ -223,5 +232,82 @@ export const darkTheme = createMuiTheme({
   // Overrides
   overrides: {
     ...baseThemeOverrides.overrides,
+    MuiPaper: {
+      elevation0: {
+        backgroundColor: darkColors.surface,
+      },
+      elevation1: {
+        backgroundColor: tint(0.05, darkColors.surface),
+      },
+      elevation2: {
+        backgroundColor: tint(0.07, darkColors.surface),
+      },
+      elevation3: {
+        backgroundColor: tint(0.08, darkColors.surface),
+      },
+      elevation4: {
+        backgroundColor: tint(0.09, darkColors.surface),
+      },
+      elevation5: {
+        backgroundColor: tint(0.1, darkColors.surface),
+      },
+      elevation6: {
+        backgroundColor: tint(0.11, darkColors.surface),
+      },
+      elevation7: {
+        backgroundColor: tint(0.11, darkColors.surface),
+      },
+      elevation8: {
+        backgroundColor: tint(0.12, darkColors.surface),
+      },
+      elevation9: {
+        backgroundColor: tint(0.12, darkColors.surface),
+      },
+      elevation10: {
+        backgroundColor: tint(0.12, darkColors.surface),
+      },
+      elevation11: {
+        backgroundColor: tint(0.12, darkColors.surface),
+      },
+      elevation12: {
+        backgroundColor: tint(0.14, darkColors.surface),
+      },
+      elevation13: {
+        backgroundColor: tint(0.14, darkColors.surface),
+      },
+      elevation14: {
+        backgroundColor: tint(0.14, darkColors.surface),
+      },
+      elevation15: {
+        backgroundColor: tint(0.14, darkColors.surface),
+      },
+      elevation16: {
+        backgroundColor: tint(0.15, darkColors.surface),
+      },
+      elevation17: {
+        backgroundColor: tint(0.15, darkColors.surface),
+      },
+      elevation18: {
+        backgroundColor: tint(0.15, darkColors.surface),
+      },
+      elevation19: {
+        backgroundColor: tint(0.15, darkColors.surface),
+      },
+      elevation20: {
+        backgroundColor: tint(0.15, darkColors.surface),
+      },
+      elevation21: {
+        backgroundColor: tint(0.15, darkColors.surface),
+      },
+      elevation22: {
+        backgroundColor: tint(0.15, darkColors.surface),
+      },
+      elevation23: {
+        backgroundColor: tint(0.15, darkColors.surface),
+      },
+      elevation24: {
+        backgroundColor: tint(0.16, darkColors.surface),
+      },
+    },
   },
 });

@@ -6,11 +6,13 @@ import { addDecorator } from "@storybook/react";
 import {
   WelevelUIThemeProvider,
   createWelevelUITheme,
-  welevelUII18nInstance,
+  welevelUII18nDefaultNS,
+  welevelUII18nResources,
 } from "../src/index";
 
 import { themes } from "@storybook/theming";
-import { I18nextProvider } from "react-i18next";
+import { I18nextProvider, initReactI18next } from "react-i18next";
+import { createInstance } from "i18next";
 
 export const parameters = {
   darkMode: {
@@ -20,6 +22,19 @@ export const parameters = {
     current: "light",
   },
 };
+
+export const welevelUII18nInstance = createInstance({
+  debug: true,
+  interpolation: {
+    escapeValue: false,
+  },
+}).use(initReactI18next);
+
+welevelUII18nInstance.init({
+  fallbackLng: "it",
+  defaultNS: welevelUII18nDefaultNS,
+  resources: welevelUII18nResources,
+});
 
 addDecorator((story) => (
   <Suspense fallback={<div>loading...</div>}>

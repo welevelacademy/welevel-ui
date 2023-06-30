@@ -2,6 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import { CardComponent } from "..";
+import { useGetContentCounterString } from "../../../utilities";
 import { Avatar } from "../../Avatar";
 import {
   AspectAvatarContainer,
@@ -17,6 +18,9 @@ export interface CardUserProperties {
   imageUrl: string;
   type: CardUserType;
   isInteractive?: boolean;
+  reviewValue: number | undefined;
+  numberOfCourses: number | undefined;
+  numberOfEvents: number | undefined;
 }
 // Component
 export const CardUser: React.FC<CardUserProperties> = ({
@@ -25,17 +29,22 @@ export const CardUser: React.FC<CardUserProperties> = ({
   imageUrl,
   type,
   isInteractive = true,
+  reviewValue,
+  numberOfCourses,
+  numberOfEvents,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation(["welevelUICommon", "welevelUIComponents"]);
 
   // Data
   const isAvatarSquared = type === "partnerAgency";
 
+  // i18n string
   const role = new Map<CardUserType, string>([
-    ["partnerAgency", t("partnerAgency")],
-    ["teacher", t("teacher")],
+    ["partnerAgency", t("welevelUICommon:partnerAgency")],
+    ["teacher", t("welevelUICommon:teacher")],
   ]);
 
+  // JSX
   return (
     <CardComponent.Wrapper isInteractive={isInteractive}>
       <AspectSpacerTop />
@@ -56,7 +65,13 @@ export const CardUser: React.FC<CardUserProperties> = ({
         <CardComponent.Content>
           <CardComponent.Header
             endDecorator={
-              <CardComponent.HeaderReview>4,5</CardComponent.HeaderReview>
+              reviewValue !== undefined && (
+                <CardComponent.HeaderReview>
+                  {t("welevelUIComponents:card.CardHeaderReview.review", {
+                    value: reviewValue,
+                  })}
+                </CardComponent.HeaderReview>
+              )
             }
           >
             {role.get(type) ?? ""}
@@ -65,7 +80,9 @@ export const CardUser: React.FC<CardUserProperties> = ({
             title={name}
             description={description}
           ></CardComponent.Body>
-          <CardComponent.Footer>8 corsi</CardComponent.Footer>
+          <CardComponent.Footer>
+            {useGetContentCounterString({ numberOfCourses, numberOfEvents })}
+          </CardComponent.Footer>
         </CardComponent.Content>
       </CardComponent.Paper>
     </CardComponent.Wrapper>

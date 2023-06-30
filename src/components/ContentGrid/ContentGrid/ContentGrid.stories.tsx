@@ -37,6 +37,9 @@ Base.args = {
         name="Francesca Toni"
         type="teacher"
         imageUrl="https://source.unsplash.com/random/600×600/?woman-portrait"
+        numberOfCourses={5}
+        numberOfEvents={3}
+        reviewValue={4.2}
       />
     )),
 };
@@ -62,6 +65,9 @@ Loading.args = {
         name="Francesca Toni"
         type="teacher"
         imageUrl="https://source.unsplash.com/random/600×600/?woman-portrait"
+        numberOfCourses={5}
+        numberOfEvents={3}
+        reviewValue={4.2}
       />
     )),
 };

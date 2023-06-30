@@ -88,6 +88,9 @@ Base.args = {
           name="Hotelperformance"
           type="partnerAgency"
           imageUrl="https://source.unsplash.com/random/600×600/?logo"
+          numberOfCourses={5}
+          numberOfEvents={3}
+          reviewValue={4.2}
         />
       )),
     handleShowMore: () => console.log("show more"),

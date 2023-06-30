@@ -1,4 +1,4 @@
-import { Container } from "@material-ui/core";
+import { Container, Link, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
@@ -17,7 +17,6 @@ import { SegmentedControl } from "../../components/SegmentedControl";
 import { LayoutUserHeader } from "./components/LayoutUserHeader";
 import { LayoutUserInfo } from "./components/LayoutUserInfo";
 
-// TODO:
 type LayoutUserType = "teacher" | "partnerAgency";
 
 interface BaseLayoutUserProperties {
@@ -58,6 +57,7 @@ const SegmentedControlWrapper = styled.div`
   padding-top: ${({ theme }) => theme.spacing(1)}px;
 `;
 
+// FIXME: remove and move to welevel
 // Component
 export const LayoutUser: React.FC<LayoutUserProperties> = ({
   segmentedControlLayoutID,
@@ -169,15 +169,13 @@ export const LayoutUser: React.FC<LayoutUserProperties> = ({
         <LayoutComponents.NavigationHeader
           ShareMenuQuote={shareQuote.get(type) ?? ""}
           breadcrumbs={[
-            <LayoutComponents.NavigationHeaderLink key="home">
+            <Link key="home" href="/">
               TODO: home
-            </LayoutComponents.NavigationHeaderLink>,
-            <LayoutComponents.NavigationHeaderLink key="users">
+            </Link>,
+            <Link key="users" href="/">
               TODO: users
-            </LayoutComponents.NavigationHeaderLink>,
-            <LayoutComponents.NavigationHeaderLinkDisabled key="user">
-              {userName}
-            </LayoutComponents.NavigationHeaderLinkDisabled>,
+            </Link>,
+            <Typography key="user">{userName}</Typography>,
           ]}
         ></LayoutComponents.NavigationHeader>
         <LayoutComponents.HeroImage imageUrl={coverImageUrl} />

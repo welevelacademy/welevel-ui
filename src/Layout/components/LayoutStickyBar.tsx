@@ -1,4 +1,4 @@
-import { Container } from "@material-ui/core";
+import { Container, Paper } from "@material-ui/core";
 import React from "react";
 import styled from "styled-components";
 
@@ -9,8 +9,10 @@ interface LayoutStickyBarProperties {
 
 // Styled
 
-const Wrapper = styled.div`
-  background-color: ${({ theme }) => theme.palette.background.paper};
+const Wrapper = styled(Paper).attrs({
+  square: true,
+  elevation: 2,
+})`
   box-shadow: ${({ theme }) => theme.shadows[1]};
   position: sticky;
   top: ${({ theme }) => theme.mixins.toolbar.minHeight}px;

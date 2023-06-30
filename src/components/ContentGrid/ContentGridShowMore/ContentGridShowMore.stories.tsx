@@ -40,6 +40,9 @@ Base.args = {
         name="Francesca Toni"
         type="teacher"
         imageUrl="https://source.unsplash.com/random/600×600/?woman-portrait"
+        numberOfCourses={5}
+        numberOfEvents={3}
+        reviewValue={4.2}
       />
     )),
   ItemsLimit: 12,
@@ -67,6 +70,9 @@ Loading.args = {
         name="Francesca Toni"
         type="teacher"
         imageUrl="https://source.unsplash.com/random/600×600/?woman-portrait"
+        numberOfCourses={5}
+        numberOfEvents={3}
+        reviewValue={4.2}
       />
     )),
   ItemsLimit: 12,
@@ -95,16 +101,28 @@ AllItems.args = {
         name="Francesca Toni"
         type="teacher"
         imageUrl="https://source.unsplash.com/random/600×600/?woman-portrait"
+        numberOfCourses={5}
+        numberOfEvents={3}
+        reviewValue={4.2}
       />
     )),
   ItemsLimit: 12,
   ItemsTotal: 22,
 };
 
-// TODO: empty
 export const EmptyContent = Template.bind({});
 
 EmptyContent.args = {
   children: [],
   title: "Docenti di Cucine&Cuochi",
+};
+
+// TODO: empty
+export const Skeleton = Template.bind({});
+
+Skeleton.args = {
+  children: [],
+  title: "Docenti di Cucine&Cuochi",
+  isLoading: true,
+  loadingItem: <CardUserSkeleton />,
 };

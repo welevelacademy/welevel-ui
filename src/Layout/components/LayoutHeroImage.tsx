@@ -1,26 +1,18 @@
 import { Container } from "@material-ui/core";
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { css } from "styled-components";
+
+import { LoadingImage, LoadingImageProperties } from "../../components";
 
 // Type
-interface LayoutHeroImageProperties {
-  imageUrl: string;
+interface LayoutHeroImageProperties extends LoadingImageProperties {
   children?: React.ReactNode | React.ReactNode[];
 }
 
-interface StyledHeroImageProperties {
-  $imageUrl: string;
-}
-
-// Styled
-const StyledHeroImage = styled.div<StyledHeroImageProperties>`
-  background-color: ${({ theme }) => theme.palette.background.default};
-  background-image: ${({ $imageUrl }) => "url(" + $imageUrl + ")"};
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-radius: 0;
+const Wrapper = styled.div`
   aspect-ratio: 3;
+  overflow: hidden;
   position: relative;
 
   // remove border radius when max container width meet the edge of the cover
@@ -37,9 +29,22 @@ const StyledHeroImage = styled.div<StyledHeroImageProperties>`
 // JSX
 export const LayoutHeroImage: React.FC<LayoutHeroImageProperties> = ({
   imageUrl,
+  isSkeleton,
+  alternativeText,
+  customFallBackElement,
   children,
-}) => (
-  <Container disableGutters maxWidth="lg">
-    <StyledHeroImage $imageUrl={imageUrl}>{children}</StyledHeroImage>
-  </Container>
-);
+}) => {
+  return (
+    <Container disableGutters maxWidth="lg">
+      <Wrapper>
+        <LoadingImage
+          imageUrl={imageUrl}
+          alternativeText={alternativeText}
+          isSkeleton={isSkeleton}
+          customFallBackElement={customFallBackElement}
+        />
+        {children}
+      </Wrapper>
+    </Container>
+  );
+};

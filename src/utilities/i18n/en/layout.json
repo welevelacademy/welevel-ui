@@ -1,11 +1,13 @@
 {
   "LayoutUser": {
+    "contactCTA": "Write a message",
     "courseSectionTitle": "{{userName}} courses",
     "eventSectionTitle": "{{userName}} events",
     "partnerAgencySectionTitle": "{{userName}} workplaces",
     "teacherSectionTitle": "{{userName}} teachers"
   },
   "LayoutUserInfo": {
+    "infoEmpty": "{{userName}} doesn't have a description yet",
     "infoTitle": "Info about {{userName}}",
     "topicsTitle": "Topics",
     "reviewsTitle": "Course reviews",

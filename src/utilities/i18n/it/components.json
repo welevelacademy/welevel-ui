@@ -1,6 +1,8 @@
 {
   "card": {
-    "test": "test"
+    "CardHeaderReview": {
+      "review": "{{value, number(minimumFractionDigits: 1; maximumFractionDigits: 1)}}"
+    }
   },
   "EmptyMessage": {
     "title": "Questa sezione è ancora vuota",

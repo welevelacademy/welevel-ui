@@ -14,6 +14,7 @@ const StyledChipTopic = styled(Chip)<{
 }>`
   background-color: ${({ $backgroundColor }) => $backgroundColor};
   color: ${({ theme, $color }) => theme.palette.getContrastText($color)};
+  font-weight: 500;
 
   &:hover {
     background-color: ${({ theme, $backgroundColor }) =>
@@ -26,10 +27,16 @@ const StyledChipTopic = styled(Chip)<{
   }
 `;
 
+// TODO: The Chip "component" props get lost
 export const ChipTopic: React.FC<ChipTopicProperties> = ({
   color,
   ...others
 }) => {
+  // TODO: Adjust the palette to get the bg and the color // So no white or black color?
+  // const baseBackgroundColor = setSaturation(0.45, setLightness(0.4, color));
+  // const baseColor = setSaturation(0.95, setLightness(0.95, color));
+  // const contrast = meetsContrastGuidelines(baseBackgroundColor, baseColor);
+
   return (
     <StyledChipTopic $color={color} $backgroundColor={color} {...others} />
   );

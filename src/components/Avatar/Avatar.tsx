@@ -1,31 +1,31 @@
 import { useTheme } from "@material-ui/core";
-import { Skeleton } from "@material-ui/lab";
-import React, { useState } from "react";
+import React from "react";
 import styled, { css } from "styled-components";
+
+import { LoadingImage } from "../LoadingImage";
 
 // Type
 type Sizes = "sm" | "md" | "lg" | "fullHeight" | "fullWidth";
 type BorderWidth = "none" | "sm" | "md" | "lg";
 type Shadow = "none" | "stroke" | "sm" | "md" | "lg";
-interface CommonAvatarProperties {
+
+export type AvatarProperties = {
   isSquared?: boolean;
   alternativeText: string;
   shadow?: Shadow;
   size?: Sizes;
   borderWidth?: BorderWidth;
   borderColor?: string;
-}
-export type AvatarProperties = CommonAvatarProperties &
-  (
-    | {
-        imageUrl?: string;
-        isSkeleton: true;
-      }
-    | {
-        imageUrl: string;
-        isSkeleton?: false;
-      }
-  );
+} & (
+  | {
+      imageUrl?: string | undefined;
+      isSkeleton: true;
+    }
+  | {
+      imageUrl: string | undefined;
+      isSkeleton?: false;
+    }
+);
 type AvatarShapeProperties = {
   $isSquared: boolean;
 };
@@ -37,12 +37,6 @@ interface BorderProperties extends AvatarShapeProperties {
   $borderColor?: string;
   $borderWidth: BorderWidth;
 }
-type CommonAvatarStyleProperties = AvatarShapeProperties;
-interface StyledAvatarProperties extends CommonAvatarStyleProperties {
-  $isLoaded: boolean;
-}
-type DefaultAvatarProperties = CommonAvatarStyleProperties;
-type StyledSkeletonAvatar = AvatarShapeProperties;
 
 // Styled
 // TODO: use react hook useId() - issue with storybook
@@ -133,71 +127,20 @@ const Border = styled.div<BorderProperties>`
   }}
 `;
 
-const commonAvatarStyle = css<CommonAvatarStyleProperties>`
+const StyledAvatarWrapper = styled.div<AvatarShapeProperties>`
   clip-path: url(#${({ $isSquared }) =>
     $isSquared ? squaredMaskID : circleMaskID});
   height: 100%;
-  object-fit: cover;
   width: 100%;
 `;
 
-const StyledAvatar = styled.img<StyledAvatarProperties>`
-  ${commonAvatarStyle}
-  opacity: ${({ $isLoaded }) => ($isLoaded ? "1" : "0")};
-  transition: ${({ theme }) =>
-    theme.transitions.create("opacity", {
-      duration: theme.transitions.duration.shortest,
-      easing: theme.transitions.easing.easeOut,
-    })};
+const DefaultAvatarWrapper = styled.svg`
+  display: block;
+  height: 100%;
+  width: 100%;
 `;
-
-const DefaultAvatarWrapper = styled.svg<DefaultAvatarProperties>`
-  ${commonAvatarStyle}
-`;
-
-const StyledSkeletonAvatar = styled(Skeleton).attrs({
-  variant: "rect",
-})<StyledSkeletonAvatar>`
-  ${commonAvatarStyle}
-`;
-
-// Dfault avatar illustration
-const DefaultAvatar: React.FC<{ isSquared: boolean }> = ({ isSquared }) => {
-  // Theme
-  const theme = useTheme();
-
-  return (
-    <DefaultAvatarWrapper
-      $isSquared={isSquared}
-      viewBox="0 0 176 176"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlSpace="preserve"
-      style={{
-        fillRule: "evenodd",
-        clipRule: "evenodd",
-        strokeLinejoin: "round",
-        strokeMiterlimit: 2,
-      }}
-    >
-      <path fill={theme.palette.background.default} d="M0 0h176v176H0z" />
-      <path
-        d="M10.769 176c3.306-39.737 36.647-71 77.231-71 40.584 0 73.925 31.263 77.231 71H10.769Z"
-        fill={theme.palette.primary.main}
-        opacity={0.4}
-      />
-      <circle
-        cx="88"
-        cy="88"
-        r="44"
-        fill={theme.palette.primary.main}
-        opacity={0.4}
-      />
-    </DefaultAvatarWrapper>
-  );
-};
 
 // Avatar component
-
 export const Avatar: React.FC<AvatarProperties> = ({
   isSquared,
   alternativeText,
@@ -208,12 +151,7 @@ export const Avatar: React.FC<AvatarProperties> = ({
   borderColor,
   isSkeleton,
 }) => {
-  // State
-  // if an imageUrl is provided set isLoading to true
-  const [isLoading, setIsLoading] = useState(Boolean(imageUrl));
-  // if an imageUrl is provided set isValidSrc to true, if the img html element throw an error set to false
-  const [isValidSrc, setIsValidSrc] = useState(Boolean(imageUrl));
-
+  const theme = useTheme();
   return (
     <>
       {/* TODO: check support for external clip path url */}
@@ -237,29 +175,44 @@ export const Avatar: React.FC<AvatarProperties> = ({
           $borderColor={borderColor}
           $borderWidth={borderWidth}
         >
-          {/* Loading and skeleton animation - show only when is loading or the component is used as a skeleton */}
-          {(isLoading || Boolean(isSkeleton)) && (
-            <StyledSkeletonAvatar $isSquared={Boolean(isSquared)} />
-          )}
-          {/* Avatar image - show when a valid image url is provided and set opacity to 1 when loaded */}
-          {isValidSrc && !isSkeleton && (
-            <StyledAvatar
-              $isSquared={Boolean(isSquared)}
-              $isLoaded={!isLoading}
-              alt={alternativeText}
-              src={imageUrl}
-              loading="lazy"
-              onLoad={() => setIsLoading(false)}
-              onError={() => {
-                setIsLoading(false);
-                setIsValidSrc(false);
-              }}
+          <StyledAvatarWrapper $isSquared={Boolean(isSquared)}>
+            <LoadingImage
+              isSkeleton={isSkeleton}
+              imageUrl={imageUrl}
+              alternativeText={alternativeText}
+              customFallBackElement={
+                <DefaultAvatarWrapper
+                  viewBox="0 0 176 176"
+                  xmlns="http://www.w3.org/2000/svg"
+                  preserveAspectRatio="xMidYMid slice"
+                  xmlSpace="preserve"
+                  style={{
+                    fillRule: "evenodd",
+                    clipRule: "evenodd",
+                    strokeLinejoin: "round",
+                    strokeMiterlimit: 2,
+                  }}
+                >
+                  <path
+                    fill={theme.palette.background.default}
+                    d="M0 0h176v176H0z"
+                  />
+                  <path
+                    d="M10.769 176c3.306-39.737 36.647-71 77.231-71 40.584 0 73.925 31.263 77.231 71H10.769Z"
+                    fill={theme.palette.primary.main}
+                    opacity={0.4}
+                  />
+                  <circle
+                    cx="88"
+                    cy="88"
+                    r="44"
+                    fill={theme.palette.primary.main}
+                    opacity={0.4}
+                  />
+                </DefaultAvatarWrapper>
+              }
             />
-          )}
-          {/* Fallback default avatar illustration - show only when no valid image url was provided and the component is not used as a skeleton  */}
-          {!isValidSrc && !isSkeleton && !isLoading && (
-            <DefaultAvatar isSquared={Boolean(isSquared)} />
-          )}
+          </StyledAvatarWrapper>
         </Border>
       </Wrapper>
     </>
