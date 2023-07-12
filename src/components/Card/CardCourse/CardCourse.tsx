@@ -39,7 +39,7 @@ export const CardCourse: React.FC<CardCourseProperties> = ({
               <CardComponent.HeaderReview>4,5</CardComponent.HeaderReview>
             }
           >
-            {t("course_one")}
+            {t("general.course_one")}
           </CardComponent.Header>
           <CardComponent.Body
             title={name}

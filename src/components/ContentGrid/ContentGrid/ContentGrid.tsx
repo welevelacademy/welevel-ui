@@ -52,7 +52,11 @@ export const ContentGrid: React.FC<ContentGridProperties> = ({
       {isLoading &&
         Array(numberOfLoadingItems)
           .fill("loading")
-          .map(() => loadingItem)}
+          .map((_, index) => (
+            <React.Fragment key={`loading-${index}`}>
+              {loadingItem}
+            </React.Fragment>
+          ))}
     </Wrapper>
   );
 };

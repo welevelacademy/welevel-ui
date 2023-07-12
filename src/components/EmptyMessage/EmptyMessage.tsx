@@ -20,15 +20,15 @@ export const EmptyMessage: React.FC<EmptyMessageProperties> = ({
   customTitle,
   customDescription,
 }) => {
-  const { t } = useTranslation("welevelUIComponents");
+  const { t } = useTranslation();
 
   return (
     <Wrapper>
       <Typography align="center" variant="h4" color="textSecondary">
-        {customTitle ?? t("EmptyMessage.title")}
+        {customTitle ?? t("components.EmptyMessage.title")}
       </Typography>
       <Typography align="center" variant="body1" color="textSecondary">
-        {customDescription ?? t("EmptyMessage.description")}
+        {customDescription ?? t("components.EmptyMessage.description")}
       </Typography>
     </Wrapper>
   );

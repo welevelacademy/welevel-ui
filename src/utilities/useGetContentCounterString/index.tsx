@@ -10,13 +10,13 @@ export const useGetContentCounterString = ({
   numberOfCourses,
   numberOfEvents,
 }: useGetContentCounterStringProperties): string => {
-  const { t } = useTranslation(["welevelUICommon"]);
+  const { t } = useTranslation();
 
   const contentCounter: string[] = [];
 
   if (numberOfCourses) {
     contentCounter.push(
-      `${numberOfCourses} ${t("welevelUICommon:course", {
+      `${numberOfCourses} ${t("general.course", {
         count: numberOfCourses,
       })}`,
     );
@@ -24,7 +24,7 @@ export const useGetContentCounterString = ({
 
   if (numberOfEvents) {
     contentCounter.push(
-      `${numberOfEvents} ${t("welevelUICommon:event", {
+      `${numberOfEvents} ${t("general.event", {
         count: numberOfEvents,
       })}`,
     );

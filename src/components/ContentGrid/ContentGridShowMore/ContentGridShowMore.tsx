@@ -51,7 +51,7 @@ export const ContentGridShowMore: React.FC<ContentGridShowMoreProperties> = ({
   customShowMoreCTA,
   showDivider = true,
 }) => {
-  const { t } = useTranslation("welevelUIComponents");
+  const { t } = useTranslation();
 
   const numberOfItems = Children.count(children);
 
@@ -88,7 +88,7 @@ export const ContentGridShowMore: React.FC<ContentGridShowMoreProperties> = ({
             ) : (
               <Typography variant="body2" color="textSecondary">
                 {customShowMoreMessage ??
-                  t("ContentGridShowMore.showMoreMessage", {
+                  t("components.ContentGridShowMore.showMoreMessage", {
                     items: numberOfItems,
                     total: ItemsTotal,
                   })}
@@ -104,7 +104,7 @@ export const ContentGridShowMore: React.FC<ContentGridShowMoreProperties> = ({
                 onClick={handleShowMore}
               >
                 {customShowMoreCTA ??
-                  t("ContentGridShowMore.showMoreCTA", {
+                  t("components.ContentGridShowMore.showMoreCTA", {
                     count: showMoreItemsNumber,
                   })}
               </Button>

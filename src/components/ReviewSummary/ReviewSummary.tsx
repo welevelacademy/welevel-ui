@@ -43,7 +43,7 @@ export const ReviewSummary: React.FC<ReviewSummaryProperties> = ({
   numberOfReviews,
   ...other
 }) => {
-  const { t } = useTranslation("welevelUIComponents");
+  const { t } = useTranslation();
 
   return (
     <ReviewSummaryWrapper {...other} $isLoading={false}>
@@ -54,7 +54,7 @@ export const ReviewSummary: React.FC<ReviewSummaryProperties> = ({
       >
         <Trans
           t={t}
-          i18nKey={"ReviewSummary.summary"}
+          i18nKey={"components.ReviewSummary.summary"}
           values={{
             value,
             count: numberOfReviews,

@@ -1,16 +1,1 @@
-{
-  "LayoutUser": {
-    "contactCTA": "Scrivi un messaggio",
-    "courseSectionTitle": "Corsi di {{userName}}",
-    "eventSectionTitle": "Eventi di {{userName}}",
-    "partnerAgencySectionTitle": "{{userName}} lavora presso",
-    "teacherSectionTitle": "I docenti di {{userName}}"
-  },
-  "LayoutUserInfo": {
-    "infoTitle": "Informazioni su {{userName}}",
-    "infoEmpty": "{{userName}} non ha ancora una descrizione",
-    "topicsTitle": "Argomenti",
-    "reviewsTitle": "Recensioni dei corsi",
-    "linksTitle": "Link"
-  }
-}
+{}

@@ -61,7 +61,8 @@ Base.args = {
         alignItems: "center",
         gap: 8,
         padding: "0 16px",
-      }}>
+      }}
+    >
       <Pool></Pool>
       <Typography variant="button">floating time!</Typography>
     </div>

@@ -1,20 +1,24 @@
-import commonEN from "./en/common.json";
 import componentsEN from "./en/components.json";
+import generalEN from "./en/general.json";
 import layoutEN from "./en/layout.json";
-import commonIT from "./it/common.json";
 import componentsIT from "./it/components.json";
+import generalIT from "./it/general.json";
 import layoutIT from "./it/layout.json";
 
-export const welevelUII18nDefaultNS = "welevelUICommon";
+export const welevelUII18nDefaultNS = "translation";
 export const welevelUII18nResources = {
   en: {
-    welevelUICommon: commonEN,
-    welevelUIComponents: componentsEN,
-    welevelUILayout: layoutEN,
+    translation: {
+      general: generalEN,
+      components: componentsEN,
+      layout: layoutEN,
+    },
   },
   it: {
-    welevelUICommon: commonIT,
-    welevelUIComponents: componentsIT,
-    welevelUILayout: layoutIT,
+    translation: {
+      general: generalIT,
+      components: componentsIT,
+      layout: layoutIT,
+    },
   },
 } as const;

@@ -60,7 +60,7 @@ export const CardStudyPlan: React.FC<CardStudyPlanProperties> = ({
         </CardComponent.Cover>
         <CardComponent.Content>
           <CardComponent.Header>
-            <Trans i18nKey="certifiedStudyPlan"></Trans>
+            <Trans i18nKey="general.certifiedStudyPlan_one"></Trans>
           </CardComponent.Header>
           <CardComponent.Body
             title={name}

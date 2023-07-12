@@ -33,15 +33,15 @@ export const CardUser: React.FC<CardUserProperties> = ({
   numberOfCourses,
   numberOfEvents,
 }) => {
-  const { t } = useTranslation(["welevelUICommon", "welevelUIComponents"]);
+  const { t } = useTranslation();
 
   // Data
   const isAvatarSquared = type === "partnerAgency";
 
   // i18n string
   const role = new Map<CardUserType, string>([
-    ["partnerAgency", t("welevelUICommon:partnerAgency")],
-    ["teacher", t("welevelUICommon:teacher")],
+    ["partnerAgency", t("general.partnerAgency_one")],
+    ["teacher", t("general.teacher_one")],
   ]);
 
   // JSX
@@ -67,17 +67,19 @@ export const CardUser: React.FC<CardUserProperties> = ({
             endDecorator={
               reviewValue !== undefined && (
                 <CardComponent.HeaderReview>
-                  {t("welevelUIComponents:card.CardHeaderReview.review", {
+                  {t("components.card.CardHeaderReview.review", {
                     value: reviewValue,
                   })}
                 </CardComponent.HeaderReview>
               )
-            }>
+            }
+          >
             {role.get(type) ?? ""}
           </CardComponent.Header>
           <CardComponent.Body
             title={name}
-            description={description}></CardComponent.Body>
+            description={description}
+          ></CardComponent.Body>
           <CardComponent.Footer>
             {useGetContentCounterString({ numberOfCourses, numberOfEvents })}
           </CardComponent.Footer>

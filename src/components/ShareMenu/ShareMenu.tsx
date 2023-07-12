@@ -35,7 +35,7 @@ const SocialButton = ({
 );
 
 const ShareMenu: React.FC<ShareMenuProperties> = ({ quote, customCTA }) => {
-  const { t } = useTranslation("welevelUIComponents");
+  const { t } = useTranslation();
   // State
   const [anchorEl, setAnchorEl] = useState<undefined | HTMLElement>(undefined);
 
@@ -49,7 +49,7 @@ const ShareMenu: React.FC<ShareMenuProperties> = ({ quote, customCTA }) => {
       >
         {customCTA || (
           <Button startIcon={<ShareIcon />} size="small" variant="outlined">
-            {t("ShareMenu.CTA")}
+            {t("components.ShareMenu.CTA")}
           </Button>
         )}
       </div>
