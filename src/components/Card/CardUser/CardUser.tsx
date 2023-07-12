@@ -72,14 +72,12 @@ export const CardUser: React.FC<CardUserProperties> = ({
                   })}
                 </CardComponent.HeaderReview>
               )
-            }
-          >
+            }>
             {role.get(type) ?? ""}
           </CardComponent.Header>
           <CardComponent.Body
             title={name}
-            description={description}
-          ></CardComponent.Body>
+            description={description}></CardComponent.Body>
           <CardComponent.Footer>
             {useGetContentCounterString({ numberOfCourses, numberOfEvents })}
           </CardComponent.Footer>

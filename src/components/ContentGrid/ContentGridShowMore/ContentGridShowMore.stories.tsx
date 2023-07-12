@@ -27,9 +27,9 @@ Base.args = {
   title: "Docenti di Cucine&Cuochi",
   children: Array(offset)
     .fill("card-user")
-    .map((item, index) => (
+    .map((_, index) => (
       <CardUser
-        key={item}
+        key={`show-more-base-${index}`}
         description={
           index % 2 === 0
             ? "Chef presso @cucinaInFiamme"
@@ -57,9 +57,9 @@ Loading.args = {
   title: "Docenti di Cucine&Cuochi",
   children: Array(offset)
     .fill("card-user")
-    .map((item, index) => (
+    .map((_, index) => (
       <CardUser
-        key={item}
+        key={`loading-${index}`}
         description={
           index % 2 === 0
             ? "Chef presso @cucinaInFiamme"
@@ -88,9 +88,9 @@ AllItems.args = {
   title: "Docenti di Cucine&Cuochi",
   children: Array(22)
     .fill("card-user")
-    .map((item, index) => (
+    .map((_, index) => (
       <CardUser
-        key={item}
+        key={`allitems-${index}`}
         description={
           index % 2 === 0
             ? "Chef presso @cucinaInFiamme"

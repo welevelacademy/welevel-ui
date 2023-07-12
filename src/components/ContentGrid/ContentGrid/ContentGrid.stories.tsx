@@ -24,9 +24,9 @@ Base.args = {
   loadingItem: <CardUserSkeleton />,
   children: Array(Math.floor(Math.random() * (12 - 1) + 1))
     .fill("card-user")
-    .map((item, index) => (
+    .map((_, index) => (
       <CardUser
-        key={item}
+        key={`base-${index}`}
         description={
           index % 2 === 0
             ? "Chef presso @cucinaInFiamme"
@@ -52,9 +52,9 @@ Loading.args = {
   loadingItem: <CardUserSkeleton />,
   children: Array(Math.floor(Math.random() * (7 - 1) + 1))
     .fill("card-user")
-    .map((item, index) => (
+    .map((_, index) => (
       <CardUser
-        key={item}
+        key={`loading-${index}`}
         description={
           index % 2 === 0
             ? "Chef presso @cucinaInFiamme"

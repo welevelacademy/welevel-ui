@@ -61,9 +61,9 @@ Base.args = {
     // TODO: change with CardEvent
     children: Array(2)
       .fill("card-user")
-      .map((item) => (
+      .map((_, index) => (
         <CardCourse
-          key={item}
+          key={`eventsSection-${index}`}
           description={`Sai che anche la giusta mise en place può farti vendere un tavolo? 
           Entrare in un ristorante e notare la cura nei dettagli della sala, dall’ambiente alla corretta armocromia in tavola, 
           sicuramente gioca a vantaggio del tuo cliente e alla sua voglia di sedersi e godersi il pranzo o la cena.`}
@@ -81,9 +81,9 @@ Base.args = {
   partnerAgenciesSection: {
     children: Array(2)
       .fill("card-user")
-      .map((item) => (
+      .map((_, index) => (
         <CardUser
-          key={item}
+          key={`partnerAgenciesSection-${index}`}
           description="Ottimizziamo il tuo modo di lavorare e aumentiamo i profitti del tuo hotel con i giusti strumenti e le migliori soluzioni."
           name="Hotelperformance"
           type="partnerAgency"
